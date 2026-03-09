@@ -137,7 +137,7 @@ class _ListingFormScreenState extends State<ListingFormScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              listingProvider.errorMessage ?? 'Failed to save listing',
+              listingProvider.errorMessage ?? 'Failed to save a listing',
             ),
             backgroundColor: Colors.red,
           ),
