@@ -2,7 +2,7 @@
 
 A comprehensive Flutter mobile application that helps Kigali residents locate and navigate to essential public services, leisure spots, and tourist attractions.
 
-## 📱 Features
+##  Features
 
 ### 1. User Authentication
 - **Email/Password Sign Up**: Create a new account with email verification
@@ -162,3 +162,22 @@ Provides user information to other parts of the app
 
 The Kigali City Services Directory uses Provider as its state management solution. Provider was chosen for its simplicity, excellent integration with Flutter, and seamless compatibility with Firebase streams.
 
+
+
+
+State Management: Provider
+The application uses the Provider package for state management with the following providers:
+1. AuthProvider
+Manages user authentication state
+Handles sign up, login, logout
+Tracks email verification status
+Stores user profile data
+2. ListingProvider
+Manages all listing data
+Real-time Firestore streams
+Search and filter logic
+CRUD operations
+User listing ownership verification
+3. SettingsProvider
+Manages user preferences
+Notification toggle state
