@@ -8,7 +8,7 @@ import 'providers/settings_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/email_verification_screen.dart';
 import 'screens/main_screen.dart';
-import 'screens/my_listings_screen.dart'; // <-- Add your actual path
+import 'screens/my_listings_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,10 +54,7 @@ class MyApp extends StatelessWidget {
             home: _getHomeScreen(authProvider),
 
             // --- Named routes ---
-            routes: {
-              '/my-listings': (context) => const MyListingsScreen(),
-              // Add other routes here if needed
-            },
+            routes: {'/my-listings': (context) => const MyListingsScreen()},
 
             // --- Fallback for unknown routes ---
             onUnknownRoute: (settings) => MaterialPageRoute(
