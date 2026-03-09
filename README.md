@@ -134,19 +134,19 @@ service cloud.firestore {
   }
 }
 
-State Management: Provider
-Architecture Overview
-The application uses Provider for state management with three specialized providers:
+### State Management: Provider
+#Architecture Overview
+#The application uses Provider for state management with three specialized providers:
 
-MaterialApp
+#MaterialApp
     └── MultiProvider
         ├── ChangeNotifierProvider<AuthProvider>
         ├── ChangeNotifierProvider<ListingProvider>
         └── ChangeNotifierProvider<SettingsProvider>
             └── Consumer widgets for UI updates
 
- 1. AuthProvider
-Purpose: Manages authentication state and user profile
+ #1. AuthProvider
+#Purpose: Manages authentication state and user profile
 
 Key Responsibilities:
 
@@ -165,7 +165,7 @@ The Kigali City Services Directory uses Provider as its state management solutio
 
 
 
-State Management: Provider
+###State Management: Provider
 The application uses the Provider package for state management with the following providers:
 1. AuthProvider
 Manages user authentication state
