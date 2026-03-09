@@ -17,27 +17,25 @@ class ListingProvider extends ChangeNotifier {
   String _searchQuery = '';
   String _selectedCategory = 'All';
 
-  // Stream subscriptions
   StreamSubscription<List<Listing>>? _allListingsSubscription;
   StreamSubscription<List<Listing>>? _userListingsSubscription;
 
   // GETTERS
   List<Listing> get listings => _filteredListings;
   List<Listing> get userListings => _userListings;
-  List<Listing> get allListings => _allListings; // ADD THIS for debugging
+  List<Listing> get allListings => _allListings;
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
   String get selectedCategory => _selectedCategory;
-  String get searchQuery => _searchQuery; // ADD THIS for debugging
+  String get searchQuery => _searchQuery;
 
   ListingProvider() {
     print('🟢 ListingProvider initialized');
     _initializeListings();
 
-    // Listen to auth changes
     _auth.authStateChanges().listen((firebase_auth.User? user) {
       print('🟢 Auth state changed: ${user?.uid}');
-      _initializeListings(); // Re-initialize when user changes
+      _initializeListings();
     });
   }
 
@@ -46,7 +44,6 @@ class ListingProvider extends ChangeNotifier {
     _listenToListings();
     _listenToUserListings();
 
-    // Also do an immediate fetch to ensure data loads quickly
     await refreshAllListings();
     if (_auth.currentUser != null) {
       await forceRefreshUserListings();
@@ -56,7 +53,6 @@ class ListingProvider extends ChangeNotifier {
   void _listenToListings() {
     print('🟢 Setting up getAllListings listener');
 
-    // Cancel previous subscription if exists
     _allListingsSubscription?.cancel();
 
     _allListingsSubscription = _firestoreService.getAllListings().listen(
@@ -85,7 +81,6 @@ class ListingProvider extends ChangeNotifier {
       return;
     }
 
-    // Cancel previous subscription if exists
     _userListingsSubscription?.cancel();
 
     _userListingsSubscription = _firestoreService.getUserListings().listen(
@@ -98,7 +93,7 @@ class ListingProvider extends ChangeNotifier {
         }
 
         _userListings = listings;
-        notifyListeners(); // CRITICAL: This updates the UI
+        notifyListeners();
       },
       onError: (error) {
         print('🔴 Error in user listings stream: $error');
