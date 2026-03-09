@@ -31,7 +31,7 @@ class _MapViewScreenState extends State<MapViewScreen> {
             initialCameraPosition: _kigaliCenter,
             markers: _markers,
             onMapCreated: (controller) {
-              // Optional: store controller if needed
+              // Optional
             },
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
