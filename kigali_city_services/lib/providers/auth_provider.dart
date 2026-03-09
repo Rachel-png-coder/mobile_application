@@ -16,6 +16,7 @@ class AuthProvider extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   bool get isEmailVerified => _user?.emailVerified ?? false;
 
+  // Constructor me the owner
   AuthProvider() {
     _authService.authStateChanges.listen((User? user) {
       _user = user;
